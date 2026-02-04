@@ -11,3 +11,22 @@
  * 	 cardElement.textContent.indexOf(someString) >= 0 --> the value of the someString exist in the cardElement
  *	 .hidden { display: none; } --> css class already written in style css, used to remove an element from the DOM
  */
+
+const searchBox = document.getElementById("search-box");
+
+searchBox.addEventListener("keyup", (e) => {
+	const value = e.currentTarget.value.toLowerCase();
+	const cards = document.querySelectorAll(".card");
+
+	cards.forEach((card) => {
+		const text = card.textContent.toLowerCase();
+
+		if (value === "") {
+			card.classList.remove("hidden");
+		} else if (text.indexOf(value) === -1) {
+			card.classList.add("hidden");
+		} else {
+			card.classList.remove("hidden");
+		}
+	});
+});
