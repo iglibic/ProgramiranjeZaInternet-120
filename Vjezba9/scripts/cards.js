@@ -1,4 +1,4 @@
-/**
+/** 
  *  1. Add heart icon toggle.
  * By clicking on the heart icon it should switch between full(fa-heart class) and empty (fa-heart-o class) icon.
  * Hints:
@@ -41,3 +41,91 @@
  * If all values are inputted correctly, a new card is added with that content.
  * The new card should have all of the event listeners that the rest of the cards have (heart icon click, delete icon click, add paragraph, star icon click)
  */
+
+
+
+function addCardEventListeners(card) {
+	
+	const heartIcon = card.querySelector(".heart-icon");
+	heartIcon.addEventListener("click", () => {
+		if (heartIcon.classList.contains("fa-heart-o")) {
+			heartIcon.classList.remove("fa-heart-o");
+			heartIcon.classList.add("fa-heart");
+		} else {
+			heartIcon.classList.remove("fa-heart");
+			heartIcon.classList.add("fa-heart-o");
+		}
+	});
+
+	
+	const plusIcon = card.querySelector(".plus-icon");
+	const paragraphContainer = card.querySelector(".paragraph-container");
+
+	plusIcon.addEventListener("click", () => {
+		const text = prompt("Enter text for new paragraph:");
+		if (text && text.trim() !== "") {
+			const p = document.createElement("p");
+			p.textContent = text;
+			paragraphContainer.appendChild(p);
+		}
+	});
+
+	
+	const deleteIcon = card.querySelector(".x-icon");
+	const title = card.querySelector(".card-title-label").textContent;
+
+	deleteIcon.addEventListener("click", () => {
+		const confirmed = confirm(`Do you want to delete the ${title} card?`);
+		if (confirmed) {
+			card.remove();
+		}
+	});
+
+
+	const stars = card.querySelectorAll(".star-icon");
+	stars.forEach((star, index) => {
+		star.addEventListener("click", () => {
+			stars.forEach((s, i) => {
+				if (i <= index) {
+					s.classList.remove("fa-star-o");
+					s.classList.add("fa-star");
+				} else {
+					s.classList.remove("fa-star");
+					s.classList.add("fa-star-o");
+				}
+			});
+		});
+	});
+}
+
+
+document.querySelectorAll(".card").forEach(addCardEventListeners);
+
+
+const addNewCardButton = document.getElementById("add-new-card-button");
+const cardsContainer = document.getElementById("cards-container");
+const cardTemplate = document.getElementById("card-template");
+
+addNewCardButton.addEventListener("click", () => {
+	const title = prompt("Enter card title:");
+	const imagePath = prompt("Enter image path:");
+	const description = prompt("Enter card description:");
+
+	if (!title || !imagePath || !description) {
+		alert("All fields must be filled!");
+		return;
+	}
+
+	const clone = cardTemplate.content.cloneNode(true);
+	const card = clone.querySelector(".card");
+
+	card.querySelector("img").src = imagePath;
+	card.querySelector(".card-title-label").textContent = title;
+
+	const p = document.createElement("p");
+	p.textContent = description;
+	card.querySelector(".paragraph-container").appendChild(p);
+
+	addCardEventListeners(card);
+	cardsContainer.appendChild(card);
+});
