@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Exercise 9</title>
+		<link rel="stylesheet" type="text/css" href="./styles/style.css" />
+		<link rel="stylesheet" type="text/css" href="./styles/normalize.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+
+		<template id="card-template">
+			<article class="card" card-id="" user-id="">
+				<div class="card-header-icon-container">
+					<i class="fa fa-heart-o heart-icon"></i>
+					<i class="fa fa-times x-icon"></i>
+				</div>
+				<div class="card-main-content-container">
+					<h3>
+						<span class="card-title-label"></span>
+						<i class="fa fa-edit edit-icon"></i>
+					</h3>
+
+					<div class="paragraph-container"></div>
+				</div>
+				<div class="card-footer-container">
+					<i class="fa fa-plus plus-icon"></i>
+					<div class="star-container">
+						<i class="fa fa-star-o star-icon"></i>
+						<i class="fa fa-star-o star-icon"></i>
+						<i class="fa fa-star-o star-icon"></i>
+						<i class="fa fa-star-o star-icon"></i>
+						<i class="fa fa-star-o star-icon"></i>
+					</div>
+				</div>
+			</article>
+		</template>
+	</head>
+	<body>
+		<header>
+			<div id="header-links-container">
+				<img id="fesb-logo" src="images/fesb-logo.png" alt="fesb logo image" />
+				<a href="index.html">Home</a>
+				<a href="./pages/about.html">About</a>
+			</div>
+			<div id="search-container">
+				<i class="fa fa-search search-icon"></i>
+				<input type="text" id="search-box" placeholder="search" />
+			</div>
+			<div id="hamburger-menu">
+				<i class="fa fa-solid fa-bars hamburger-menu-icon"></i>
+			</div>
+		</header>
+
+		<main>
+			<div id="slider">
+				<div id="main-picture-container">
+					<i class="fa fa-chevron-left" id="left-arrow"></i>
+					<img alt="picture" src="images/cetina.jpg" alt="main slider image" />
+					<i class="fa fa-chevron-right" id="right-arrow"></i>
+				</div>
+				<div id="thumbnails-container">
+					<div class="thumbnail selected">
+						<img src="images/cetina.jpg" alt="cetina image" />
+					</div>
+					<div class="thumbnail">
+						<img src="images/kozjak.jpg" alt="kozjak image" />
+					</div>
+					<div class="thumbnail">
+						<img src="images/sibenik.jpg" alt="sibenik image" />
+					</div>
+					<div class="thumbnail">
+						<img src="images/primosten.jpg" alt="primosten image" />
+					</div>
+					<div class="thumbnail">
+						<img src="images/svilaja.jpg" alt="svilaja image" />
+					</div>
+				</div>
+			</div>
+			<h1>Exercise 9 - HTTP requests</h1>
+			<button id="add-new-card-button">Add new card</button>
+			<div id="cards-container"></div>
+		</main>
+
+		<footer>@FESB</footer>
+	</body>
+
+	<script src="scripts/search.js"></script>
+	<script src="scripts/thumbnails.js"></script>
+	<script src="scripts/cards.js"></script>
+</html>
