@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Exercise 9</title>
+		<link rel="stylesheet" type="text/css" href="./styles/style.css" />
+		<link rel="stylesheet" type="text/css" href="./styles/normalize.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+
+		<template id="card-template">
+			<article class="card">
+				<i class="fa fa-times x-icon"></i>
+				<div class="card-main-content-container">
+					<img src="" />
+					<h3><span class="card-title-label"></span> <i class="fa fa-heart-o heart-icon"></i></h3>
+					<div class="paragraph-container"></div>
+				</div>
+				<div class="card-footer-container">
+					<i class="fa fa-plus plus-icon"></i>
+					<div class="star-container">
+						<i class="fa fa-star-o star-icon"></i>
+						<i class="fa fa-star-o star-icon"></i>
+						<i class="fa fa-star-o star-icon"></i>
+						<i class="fa fa-star-o star-icon"></i>
+						<i class="fa fa-star-o star-icon"></i>
+					</div>
+				</div>
+			</article>
+		</template>
+	</head>
+	<body>
+		<header>
+			<div id="header-links-container">
+				<img id="fesb-logo" src="images/fesb-logo.png" alt="fesb logo image" />
+				<a href="index.html">Home</a>
+				<a href="./pages/about.html">About</a>
+			</div>
+			<div id="search-container">
+				<i class="fa fa-search search-icon"></i>
+				<input type="text" id="search-box" placeholder="search" />
+			</div>
+			<div id="hamburger-menu">
+				<i class="fa fa-solid fa-bars hamburger-menu-icon"></i>
+			</div>
+		</header>
+
+		<main>
+			<div id="slider">
+				<div id="main-picture-container">
+					<i class="fa fa-chevron-left" id="left-arrow"></i>
+					<img alt="picture" src="images/cetina.jpg" alt="main slider image" />
+					<i class="fa fa-chevron-right" id="right-arrow"></i>
+				</div>
+				<div id="thumbnails-container">
+					<div class="thumbnail selected">
+						<img src="images/cetina.jpg" alt="cetina image" />
+					</div>
+					<div class="thumbnail">
+						<img src="images/kozjak.jpg" alt="kozjak image" />
+					</div>
+					<div class="thumbnail">
+						<img src="images/sibenik.jpg" alt="sibenik image" />
+					</div>
+					<div class="thumbnail">
+						<img src="images/primosten.jpg" alt="primosten image" />
+					</div>
+					<div class="thumbnail">
+						<img src="images/svilaja.jpg" alt="svilaja image" />
+					</div>
+				</div>
+			</div>
+			<h1>Exercise 9 - interacting with the DOM using JS</h1>
+			<button id="add-new-card-button">Add new card</button>
+			<div id="cards-container">
+				<article class="card">
+					<i class="fa fa-times x-icon"></i>
+					<div class="card-main-content-container">
+						<img src="images/cetina.jpg" alt="cetina" />
+						<h2>
+							<span class="card-title-label">Cetina</span>
+							<i class="fa fa-heart-o heart-icon"></i>
+						</h2>
+
+						<div class="paragraph-container">
+							<p>
+								Cetina is a river in southern Croatia. It has a length of 101 km and its basin covers an area
+								of 1,463 km2. From its source, Cetina descends from an elevation of 385 metres above sea level
+								to the Adriatic Sea. It is the most water-rich river in Dalmatia.
+							</p>
+
+							<p>
+								Cetina has its source in the northwestern slopes of Dinara. Rising from a spring at Milasevo
+								near a small village called Cetina, 7 kilometres north of Vrlika, it flows 101 kilometres to
+								the Adriatic Sea. A large artificial lake begins near Vrlika, the Peruća Lake, which was
+								created by a dam some 25 kilometres downstream. Cetina then passes into the lower portion of
+								the Sinj karst field, through the city of Sinj. After that it runs eastward, through the city
+								of Trilj and then back westward around the Mosor mountain, before flowing into the Adriatic in
+								the city of Omiš.
+							</p>
+						</div>
+					</div>
+					<div class="card-footer-container">
+						<i class="fa fa-plus plus-icon"></i>
+						<div class="star-container">
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+						</div>
+					</div>
+				</article>
+
+				<article class="card">
+					<i class="fa fa-times x-icon"></i>
+
+					<div class="card-main-content-container">
+						<img src="images/kozjak.jpg" alt="kozjak" />
+						<h2>
+							<span class="card-title-label">Kozjak</span>
+							<i class="fa fa-heart-o heart-icon"></i>
+						</h2>
+
+						<div class="paragraph-container">
+							<p>
+								Kozjak, also known as Mali Kozjak or Primorski Kozjak (to differentiate it from Veliki Kozjak)
+								is a mountain located above the town of Kaštela in Dalmatia, Croatia.
+							</p>
+							<p>
+								It belongs to Dinaric Alps, and it stretches from the pass of Klis in the southeast, to the
+								above Split Airport in the northwest. The highest peak is Veli vrj (779 m) above Kaštel
+								Gomilica. Its southern slope is very steep, and northern rock slopes gradually turns to the
+								corrugate plateau of Dalmatian Zagora. Kozjak is mainly composed of karst — limestone rocks.
+							</p>
+							<p>
+								Mali Kozjak in town of Kaštela is more known than Veliki Kozjak above the village of Kijevo.
+								On the west side of the ridge is well-known mountain centre of Malačka on 477 m. Its highest
+								peak overlooks the city of Split, the ancient Roman settlement of Salona, towns of Solin,
+								Kaštela, Trogir, and most of central Dalmatia islands.
+							</p>
+						</div>
+					</div>
+					<div class="card-footer-container">
+						<i class="fa fa-plus plus-icon"></i>
+						<div class="star-container">
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+						</div>
+					</div>
+				</article>
+
+				<article class="card">
+					<i class="fa fa-times x-icon"></i>
+					<div class="card-main-content-container">
+						<img src="images/primosten.jpg" alt="primosten" />
+						<h2>
+							<span class="card-title-label">Primošten</span>
+							<i class="fa fa-heart-o heart-icon"></i>
+						</h2>
+
+						<div class="paragraph-container">
+							<p>
+								Primošten is a village and municipality in Šibenik-Knin County, Croatia. It is situated in the
+								south, between the cities of Šibenik and Trogir, on the Adriatic coast.
+							</p>
+							<p>
+								In the past, Primošten was situated on the islet close to the mainland. During the Turkish
+								invasions in 1542 the islet was protected by the walls and towers and a draw bridge connected
+								it to the mainland. When the Turks retreated, the draw bridge was replaced by the causeway and
+								in 1564 the settlement was named Primošten after the Croatian verb primostiti (to bridge).
+							</p>
+							<p>
+								Primošten is famous for its huge and beautiful vineyards. A photo of the vineyards of
+								Primošten hung in the UN center in New York. Apart from its vineyards, Primošten is also known
+								for the traditional donkey race that takes place there every summer.
+							</p>
+						</div>
+					</div>
+					<div class="card-footer-container">
+						<i class="fa fa-plus plus-icon"></i>
+						<div class="star-container">
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+						</div>
+					</div>
+				</article>
+
+				<article class="card">
+					<i class="fa fa-times x-icon"></i>
+					<div class="card-main-content-container">
+						<img src="images/sibenik.jpg" alt="kozjak" />
+						<h2>
+							<span class="card-title-label">Katedrala</span>
+							<i class="fa fa-heart-o heart-icon"></i>
+						</h2>
+
+						<div class="paragraph-container">
+							<p>
+								The Cathedral of St. James (Croatian: Katedrala sv. Jakova) in Šibenik, Croatia, is a
+								triple-nave Catholic basilica with three apses and a dome (32 m high inside). It is the
+								episcopal seat of the Šibenik diocese. It is also the most important architectural monument of
+								the Renaissance in the entire country. Since 2000, the cathedral has been on the UNESCO World
+								Heritage List.
+							</p>
+							<p>
+								The building of the church was initiated in 1402, though plans on its construction had already
+								begun in 1298, when Šibenik became a municipality. The actual work to transform the older
+								Romanesque cathedral began in 1431. Built entirely of stone (limestone from a nearby stone
+								quarry and marble from the island of Brač), it was completed in three phases, from 1433 to
+								1441, when the Grand City Council entrusted the work to local and Italian masters Francesco di
+								Giacomo, Lorenzo Pincino, Pier Paolo Bussato, Bonino da Milano, and Giorgio da Sebenico (Juraj
+								Dalmatinac) and to Croatian ones Andrija Budčić and Grubiš Šlafčić.
+							</p>
+						</div>
+					</div>
+					<div class="card-footer-container">
+						<i class="fa fa-plus plus-icon"></i>
+						<div class="star-container">
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+						</div>
+					</div>
+				</article>
+
+				<article class="card">
+					<i class="fa fa-times x-icon"></i>
+					<div class="card-main-content-container">
+						<img src="images/svilaja.jpg" alt="svilaja" />
+						<h2></h2>
+						<h2>
+							<span class="card-title-label">Svilaja</span>
+							<i class="fa fa-heart-o heart-icon"></i>
+						</h2>
+
+						<div class="paragraph-container">
+							<p>
+								Svilaja is a mountain range in Croatia, in the Dalmatian Hinterland. It is part of the Dinaric
+								Alps and stretches from the town of Sinj northwest to the Petrovo field, approximately 30 km
+								in length. The highest peak is Svilaja or Bat at 1508 m. Some of other northwest peaks are
+								Jančak (1483 m), Kita (1413 m), Turjača (1340 m), and Lisina (1301 m) which closest to the
+								town of Vrlika.
+							</p>
+							<p>
+								The Bat summit offers beautiful vistas of the Adriatic Sea, Peruća lake, and mountain ranges
+								farther in Bosnia and Herzegovina. The summit is easily approachable from southeast, either by
+								following an unpaved road from Donje Ogorje or by taking the marked trail from Orlove Stine
+								mountain lodge. Northern parts of the mountain are deemed dangerous because of the mines left
+								during the Croatian War of Independence.
+							</p>
+						</div>
+					</div>
+					<div class="card-footer-container">
+						<i class="fa fa-plus plus-icon"></i>
+						<div class="star-container">
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+							<i class="fa fa-star-o star-icon"></i>
+						</div>
+					</div>
+				</article>
+			</div>
+		</main>
+
+		<footer>@FESB</footer>
+	</body>
+
+	<script src="scripts/cards.js"></script>
+	<script src="scripts/search.js"></script>
+	<script src="scripts/thumbnails.js"></script>
+</html>
