@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Position Exercise</title>
+		<link rel="stylesheet" type="text/css" href="../styles/position.css" />
+		<link rel="stylesheet" type="text/css" href="../styles/main.css" />
+
+		<!-- Including font awesome icons within the document -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+	</head>
+
+	<body>
+		<header id="page-header">
+			<a href="../index.html">Home</a>
+			<a href="./flex-exercise.html">Flex</a>
+			<a href="./grid-exercise.html">Grid</a>
+			<a href="./position-exercise.html">Position</a>
+		</header>
+
+		<main>
+			<h1>This is a practice for using CSS position property</h1>
+			<p>
+				To complete this task make changes <strong>only</strong> in the
+				<strong>/styles/position.css</strong> file to align items according to the given task.
+			</p>
+			<ol>
+				<li class="task" id="task-1">
+					<label>
+						Reduce the image opacity by 50% and using position property center the text on top of the image.
+					</label>
+					<div class="task-image-container">
+						<img class="anya-task-image" src="../images/anya-2.jpeg" />
+						<div id="image-text">
+							<h1>This text should be centered on top of the image</h1>
+						</div>
+					</div>
+				</li>
+
+				<li class="task" id="task-2">
+					<label>
+						Center the image within the container. Place the x button in the top left corner so that it sticks
+						out of the border, example:
+						<img src="../images/delete-button.png" alt="delete-button" id="x-button-example" />. Color the
+						circular background of the button red and color the x white. When hovering over the button, change
+						the background from red to green(with transition time of 0.5 seconds) and set the cursor to
+						pointer.
+					</label>
+
+					<div class="task-image-container">
+						<img class="anya-task-image" src="../images/anya-3.jpeg" />
+						<div id="delete-button-container">
+							<i class="fa fa-times" id="delete-button"></i>
+						</div>
+					</div>
+				</li>
+			</ol>
+		</main>
+
+		<footer id="page-footer">@FESB</footer>
+	</body>
+</html>
