@@ -1,186 +1,162 @@
-// Reach the elements only after the document is loaded
-document.addEventListener('DOMContentLoaded', async function () {
-	/**
-	 * Load and render all cards
-	 */
+const API_URL = 'https://jsonplaceholder.typicode.com/posts';
 
-	// Handle the event on heart icon click
-	const heartIcons = document.querySelectorAll('.card .heart-icon');
-	for (let i = 0; i < heartIcons.length; i++) {
-		const heartIcon = heartIcons[i];
-		heartIcon.addEventListener('click', handleHeartIconClick);
-	}
+document.addEventListener('DOMContentLoaded', () => {
+    loadCards();
 
-	// Handle the event on plus icon click
-	const plusIcons = document.querySelectorAll('.plus-icon');
-	for (let i = 0; i < plusIcons.length; i++) {
-		const plusIcon = plusIcons[i];
-		plusIcon.addEventListener('click', handlePlusIconClick);
-	}
-
-	// Handle the event on x icon click
-	const XIcons = document.querySelectorAll('.x-icon');
-	for (let i = 0; i < XIcons.length; i++) {
-		const XIcon = XIcons[i];
-		XIcon.addEventListener('click', handleXIconClick);
-	}
-
-	// Handle the event on star icon click
-	const starIcons = document.querySelectorAll('.card .star-icon');
-	for (let index = 0; index < starIcons.length; index++) {
-		const starIcon = starIcons[index];
-
-		starIcon.addEventListener('click', handleStarIconClick);
-	}
-
-	// Handle the event on add card button click
-	const addNewCardButton = document.getElementById('add-new-card-button');
-	addNewCardButton.addEventListener('click', handleAddCardButtonClick);
-
-	// Handle the event on edit icon click
-	const editIcons = document.querySelectorAll('.edit-icon');
-	for (let i = 0; i < editIcons.length; i++) {
-		const editIcon = editIcons[i];
-		editIcon.addEventListener('click', handleEditIconClick);
-	}
+    document
+        .getElementById('add-new-card-button')
+        .addEventListener('click', handleAddCardButtonClick);
 });
 
-// Delete card on x icon click
-const handleXIconClick = async (event) => {
-	const clickedPlusIcon = event.currentTarget;
+async function loadCards() {
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('GET failed');
 
-	const parentCard = clickedPlusIcon.parentElement.parentElement;
+        const data = await response.json();
 
-	const isConfirmed = confirm(
-		`Do you wish to delete the '${parentCard.querySelector('.card-title-label').textContent}' card?`
-	);
-
-	if (isConfirmed) {
-		/**
-		 * Handle the http call here
-		 */
-
-		parentCard.remove();
-	}
-};
-
-// Toggle heart icon between full and empty
-function handleHeartIconClick(e) {
-	const clickedHeartIcon = e.currentTarget;
-	if (clickedHeartIcon.classList.contains('fa-heart-o')) {
-		clickedHeartIcon.classList.remove('fa-heart-o');
-		clickedHeartIcon.classList.add('fa-heart');
-	} else {
-		clickedHeartIcon.classList.remove('fa-heart');
-		clickedHeartIcon.classList.add('fa-heart-o');
-	}
+        data.slice(0, 6).forEach(post => {
+            handleAddCard(post.title, post.body, post.id, post.userId);
+        });
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-// Toggle star icons
-function handleStarIconClick(e) {
-	const clickedStarIcon = e.currentTarget;
-
-	const starContainer = clickedStarIcon.parentElement;
-	const starSiblings = starContainer.children;
-
-	let flag = false;
-
-	for (let i = 0; i < starSiblings.length; i++) {
-		const currentStarIcon = starSiblings[i];
-
-		if (!flag) {
-			currentStarIcon.classList.remove('fa-star-o');
-			currentStarIcon.classList.add('fa-star');
-		} else {
-			currentStarIcon.classList.remove('fa-star');
-			currentStarIcon.classList.add('fa-star-o');
-		}
-
-		if (currentStarIcon == clickedStarIcon) {
-			flag = true;
-		}
-	}
+function toggleHeart(e) {
+    e.currentTarget.classList.toggle('fa-heart');
+    e.currentTarget.classList.toggle('fa-heart-o');
 }
 
-// Add a new paragraph to a card
-function handlePlusIconClick(event) {
-	const newParagraphText = prompt('Input text for a new paragraph');
+function toggleStars(e) {
+    const stars = e.currentTarget.parentElement.children;
+    let active = true;
 
-	if (!newParagraphText) {
-		alert('Cannot add an empty paragraph');
-		return;
-	}
+    for (const star of stars) {
+        if (active) {
+            star.classList.replace('fa-star-o', 'fa-star');
+        } else {
+            star.classList.replace('fa-star', 'fa-star-o');
+        }
+        if (star === e.currentTarget) active = false;
+    }
+}
 
-	const newParagraphElement = document.createElement('p');
-	newParagraphElement.innerText = newParagraphText;
+function addParagraph(e) {
+    const text = prompt('Input text for a new paragraph');
+    if (!text) return;
 
-	const clickedPlusIcon = event.currentTarget;
+    const p = document.createElement('p');
+    p.textContent = text;
 
-	const parentCard = clickedPlusIcon.parentElement.parentElement;
+    e.currentTarget
+        .closest('.card')
+        .querySelector('.paragraph-container')
+        .appendChild(p);
+}
 
-	const paragraphContainer = parentCard.querySelector('.paragraph-container');
+async function deleteCard(e) {
+    const card = e.currentTarget.closest('.card');
+    const cardId = card.getAttribute('card-id');
 
-	paragraphContainer.appendChild(newParagraphElement);
-};
+    if (!confirm('Delete card?')) return;
 
-// Add a new card to the DOM and send a POST request to add a new card to the API
+   
+    if (parseInt(cardId) <= 100) {
+        try {
+            const response = await fetch(`${API_URL}/${cardId}`, {
+                method: 'DELETE'
+            });
+
+            if (!response.ok) throw new Error('DELETE failed');
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+  
+    card.remove();
+}
+
+async function editTitle(e) {
+    const card = e.currentTarget.closest('.card');
+    const cardId = card.getAttribute('card-id');
+    const label = card.querySelector('.card-title-label');
+
+    const newTitle = prompt('Edit title', label.textContent);
+    if (!newTitle) return;
+
+    if (parseInt(cardId) <= 100) {
+        try {
+            const response = await fetch(`${API_URL}/${cardId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ title: newTitle })
+            });
+
+            if (!response.ok) throw new Error('PUT failed');
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+
+    label.textContent = newTitle;
+}
+
 async function handleAddCardButtonClick() {
-	const title = prompt('input card title', 'Default title');
-	if (!title) return;
+    const title = prompt('Card title');
+    if (!title) return;
 
-	const description = prompt('Input card description', 'Default description');
-	if (!description) return;
+    const description = prompt('Card description');
+    if (!description) return;
 
-	/**
-	 * Handle the http call here
-	 */
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title,
+                body: description,
+                userId: 1
+            })
+        });
+
+        if (!response.ok) throw new Error('POST failed');
+
+        const data = await response.json();
+        handleAddCard(data.title, data.body, data.id, data.userId);
+    } catch (error) {
+        console.error(error);
+        
+        const tempId = Date.now();
+        handleAddCard(title, description, tempId, 1);
+    }
 }
 
-// Function that appends a card HTML element to the DOM
 function handleAddCard(title, description, cardId, userId) {
-	const cardTemplate = document.getElementById('card-template');
-	const cardNode = document.importNode(cardTemplate.content, true);
-	const cardElement = cardNode.querySelector('.card');
+    const template = document.getElementById('card-template');
+    const node = document.importNode(template.content, true);
+    const card = node.querySelector('.card');
 
-	cardElement.setAttribute('card-id', cardId);
-	cardElement.setAttribute('user-id', userId);
+    card.setAttribute('card-id', cardId);
+    card.setAttribute('user-id', userId);
 
-	cardElement.querySelector('.card-title-label').textContent = title;
-	const cardParagraph = document.createElement('p');
-	cardParagraph.innerText = description;
-	cardElement.querySelector('.paragraph-container').appendChild(cardParagraph);
+    card.querySelector('.card-title-label').textContent = title;
 
-	// Add event listeners to all icons in the new card
-	cardElement.querySelector('.heart-icon').addEventListener('click', handleHeartIconClick);
-	cardElement.querySelector('.x-icon').addEventListener('click', handleXIconClick);
-	cardElement.querySelector('.plus-icon').addEventListener('click', handlePlusIconClick);
-	cardElement.querySelector('.edit-icon').addEventListener('click', handleEditIconClick);
-	const starElements = cardElement.querySelectorAll('.card .star-icon');
-	for (let index = 0; index < starElements.length; index++) {
-		const starElement = starElements[index];
+    const p = document.createElement('p');
+    p.textContent = description;
+    card.querySelector('.paragraph-container').appendChild(p);
 
-		starElement.addEventListener('click', handleStarIconClick);
-	}
+    card.querySelector('.heart-icon').addEventListener('click', toggleHeart);
+    card.querySelector('.x-icon').addEventListener('click', deleteCard);
+    card.querySelector('.plus-icon').addEventListener('click', addParagraph);
+    card.querySelector('.edit-icon').addEventListener('click', editTitle);
+    card.querySelectorAll('.star-icon').forEach(star => star.addEventListener('click', toggleStars));
 
-	const cardContainer = document.getElementById('cards-container');
-	cardContainer.appendChild(cardElement);
-}
-
-// Edit card title
-async function handleEditIconClick(e) {
-	const clickedEditIcon = e.currentTarget;
-
-	const parentCard = clickedEditIcon.parentElement.parentElement.parentElement;
-
-	const editedTitle = prompt('', parentCard.querySelector('.card-title-label').textContent);
-
-	if (editedTitle) {
-		/**
-		 * Handle the http call here
-		 */
-
-		parentCard.querySelector('.card-title-label').textContent = editedTitle;
-	} else {
-		alert('Title cannot be empty.');
-	}
+    document.getElementById('cards-container').appendChild(card);
 }
