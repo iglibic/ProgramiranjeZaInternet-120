@@ -1,2 +1,2 @@
 # ProgramiranjeZaInternet-120
-opis
+Rješenja za laboratorijske vježbe iz predmeta Proogramiranje za Internet (120).
