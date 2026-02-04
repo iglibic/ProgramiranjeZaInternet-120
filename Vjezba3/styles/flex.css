@@ -1,0 +1,104 @@
+.sushi-container {
+	background-size: cover !important;
+}
+
+#task-1 .sushi-container {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+#task-2 .sushi-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#task-3 .sushi-container {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+#task-4 .sushi-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#task-5 .sushi-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#task-6 .sushi-container {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+}
+
+#task-7 .sushi-container {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: flex-end;
+}
+
+#task-8 .sushi-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+#task-9 .sushi-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#task-10 .sushi-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+#task-11 .sushi-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#task-12 .sushi-container {
+	display: flex;
+	flex-direction: column;
+}
+
+#task-13 .sushi-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+#task-14 .sushi-container {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	justify-content: space-around;
+}
+
+#task-15 .sushi-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+#task-16 .sushi-container {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+#task-17 .sushi-container {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: flex-end;
+}

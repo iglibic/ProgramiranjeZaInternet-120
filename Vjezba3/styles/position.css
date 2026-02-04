@@ -1,0 +1,54 @@
+.anya-task-image {
+	max-width: 100%;
+	border-radius: 5px;
+}
+
+#task-1 .anya-task-image {
+	opacity: 0.5;
+}
+
+.task-image-container {
+	margin-top: 20px;
+	position: relative;
+}
+
+.x-button-example {
+	width: 30px;
+	height: 30px;
+}
+
+#task-1 #image-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#task-2 .anya-task-image {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -20%);
+}
+
+#delete-button-container {
+	position: relative;
+  }
+  
+#delete-button {
+	position: absolute;
+	transform: translate(600%, -1020%);
+	border-radius: 100%;
+	background: red;
+	width: 20px;
+	height: 20px;
+	color: white;
+	transition: 0.5s;
+	display: flex;
+	justify-content: center;
+}
+  
+  #task-2 #delete-button:hover {
+	background: green;
+	cursor: pointer;
+  }
