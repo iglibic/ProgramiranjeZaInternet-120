@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Exercise 5</title>
+		<link rel="stylesheet" href="styles/normalize.css" />
+		<link rel="stylesheet" href="styles/style.css" />
+	</head>
+	<body>
+		<header>Exercise 5</header>
+
+		<main>
+			<h1>Exercise 5</h1>
+
+			<ol>
+				<li>
+					<p>
+						What is the difference between <span class="code">let</span> and
+						<span class="code">const</span> keywords?
+					</p>
+					<p>Answer:</p>
+				</li>
+
+				<li>
+					<p>What is JavaScript scope, what are the different types of JavaScript scope?</p>
+					<p>Answer:</p>
+				</li>
+
+				<li>
+					<p>
+						Using the steps for loose equality comparison, explain what and why will be logged to console in
+						the following code.
+					</p>
+					<ol>
+						<li>
+							<p class="code">console.log({} == [])</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log(null == undefined)</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log({} == {})</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log([1] == 1)</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log("1" == 1)</p>
+							<p>Answer:</p>
+						</li>
+						<li>
+							<p class="code">console.log(true == 1)</p>
+							<p>Answer:</p>
+						</li>
+						<li>
+							<p class="code">console.log([] == "")</p>
+							<p>Answer:</p>
+						</li>
+					</ol>
+				</li>
+
+				<li>
+					<p>
+						If we use strict equality operator instead of loose equality operator for the examples from the
+						previous task, what will be different?
+					</p>
+					<p>Answer:</p>
+				</li>
+
+				<li>
+					<p>
+						Why does <span class="code">'' == false</span> return true but
+						<span class="code">'' === false</span> return false?
+					</p>
+					<p>Answer:</p>
+				</li>
+
+				<li>
+					<p>In JavaScript, what are truthy/falsy values? Name them.</p>
+					<p>Answer:</p>
+				</li>
+
+				<li>
+					<p>For the following code, what will be logged to console and why.</p>
+
+					<ol>
+						<li>
+							<p class="code">console.log( 4 == "4" && true == 1)</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log( true && null )</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log("House" && "Mouse")</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log(false && "Mouse")</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log("Mouse" && false)</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log(0 && false)</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log( 4 == "4" || true == 1)</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log(true || null)</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log("House" || "Mouse")</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log(false || "Mouse")</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log("Mouse" || false)</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log(0 || false)</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p>
+								<span class="code">console.log(true || false && false;)</span>
+								<a
+									href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR#operator_precedence"
+									target="_blank"
+									>hint</a
+								>
+							</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<p class="code">console.log((true || false) && false;)</p>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<div class="code-block">
+								<p>const age = 20&#59;</p>
+								<p class="mb-sm">const hasTicket = true&#59;</p>
+								<p>if(age >= 18 || hasTicket) &#123;</p>
+								<p class="i-sm">console.log("Allowed to enter.")&#59;</p>
+								<p>&#125;</p>
+								<p>else &#123;</p>
+								<p class="i-sm">console.log("Not allowed to enter.")&#59;</p>
+								<p>&#125;</p>
+							</div>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<div class="code-block">
+								<p>const age = 16&#59;</p>
+								<p>const hasParentalConsent = true&#59;</p>
+								<p class="mb-sm">const hasID = false&#59;</p>
+								<p>if((age >= 18 && hasID) || (age >= 16 && hasParentalConsent)) &#123;</p>
+								<p class="i-sm">console.log("Allowed to watch the movie.")&#59;</p>
+								<p>&#125;</p>
+								<p>else &#123;</p>
+								<p class="i-sm">console.log("Not allowed to watch the movie.")&#59;</p>
+								<p>&#125;</p>
+							</div>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<div class="code-block">
+								<p>const userRole = "admin"&#59;</p>
+								<p class="mb-sm">const isLoggedIn = true&#59;</p>
+								<p>if(isLoggedIn && (userRole === "admin" || userRole === "moderator")) &#123;</p>
+								<p class="i-sm">console.log("User has access.")&#59;</p>
+								<p>&#125;</p>
+								<p>else &#123;</p>
+								<p class="i-sm">console.log("User does not have access.")&#59;</p>
+								<p>&#125;</p>
+							</div>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<div class="code-block">
+								<p>const userName = ""&#59;</p>
+								<p class="mb-sm">const displayName = userName || "Anonymous"&#59;</p>
+								<p>console.log(&#96;Hello &#36;&#123;userName&#125;!&#96;)&#59;</p>
+							</div>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<div class="code-block">
+								<p>const hasPermission = true&#59;</p>
+								<p>const isVerified = false&#59;</p>
+								<p class="mb-sm">const hasPaymentMethod = true&#59;</p>
+								<p>if((hasPermission && isVerified) || (hasPermission && hasPaymentMethod)) &#123;</p>
+								<p class="i-sm">console.log("Access granted to premium content.")&#59;</p>
+								<p>&#125;</p>
+								<p>else &#123;</p>
+								<p class="i-sm">console.log("Access denied.")&#59;</p>
+								<p>&#125;</p>
+							</div>
+							<p>Answer:</p>
+						</li>
+
+						<li>
+							<div class="code-block">
+								<p>const isModerator = true&#59;</p>
+								<p>const isContentCreator = false&#59;</p>
+								<p>const isAdmin = false&#59;</p>
+								<p>const isContentEditable = true&#59;</p>
+								<p class="mb-sm">const isSuspended = false&#59;</p>
+
+								<p class="mb-sm">
+									const canEditContent = (isAdmin || isModerator || isContentCreator) &&
+									isContentEditable&#59;
+								</p>
+								<p class="mb-sm">const hasEditingRights = canEditContent && !isSuspended&#59;</p>
+
+								<p>if(hasEditingRights) &#123;</p>
+								<p class="i-sm">console.log("User can edit content.")&#59;</p>
+								<p>&#125;</p>
+								<p>else &#123;</p>
+								<p class="i-sm">console.log("User cannot edit content.")&#59;</p>
+								<p>&#125;</p>
+							</div>
+							<p>Answer:</p>
+						</li>
+					</ol>
+				</li>
+			</ol>
+		</main>
+
+		<footer>@FESB</footer>
+	</body>
+</html>
