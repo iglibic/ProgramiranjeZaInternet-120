@@ -1,0 +1,136 @@
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    width:600px;
+    margin:0 auto;
+}
+header,footer{
+    text-align: center;
+    font-weight:bold;
+    color:white;
+    padding :5px;
+    background-color: rgb(71,71, 71);
+}
+header ul{
+    list-style-type: none;
+    padding: 0px;
+    margin :0px;
+}
+
+header li{
+    margin: 0px;
+}
+header a{
+    text-decoration: none;
+    color:white;
+
+}
+ h1 {
+    color: #1966FF;
+    }
+    h1 em {
+        color: rgb(0, 51, 153);
+        }
+
+ p{
+     text-align: justify;
+     background-color: lightgray;
+     padding:1em;
+
+ }
+ p.paragraph-special{
+border: 1px solid gray;
+
+ }
+ p.paragraph-special em{
+     color:red;
+ }
+
+ p strong{
+     background-color: red;
+     color:white;
+     padding:1px 5px;
+ }
+
+ img{
+     width: 49%;
+     border-radius: 5px;
+     
+ }
+img:hover{
+    transform: scale(1.2);
+}
+
+#heading-characters{
+    color:red;
+    text-align: center;
+}
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    text-align: center;
+    }
+    
+  
+        
+        table th,
+        table td {
+        border: 1px solid black;
+        padding: 0.5em;
+        }
+
+        table th {
+            background-color: lightgray;
+            }
+            table tr:nth-child(odd) {
+                background-color: lightcoral;
+                }
+                
+                table tr:nth-child(even) {
+                background-color: lightblue;
+                }
+
+                form {
+                    width: 300px;
+                    padding-top: 1rem;
+                    padding-left: 2rem;
+                    padding-right: 2rem;
+                    padding-bottom: 2rem;
+                    background-color: lightgray;
+                    border-radius: 10px;
+                    margin: 50px auto;
+                  }
+                  
+                  form label {
+                    display: block;
+                    margin-bottom: 0.5rem;
+                  }
+                  
+                  form input[type="email"],
+                  form input[type="password"],
+                  form select {
+                    width: 100%;
+                    padding: 5px;
+                    border-radius: 5px;
+                    margin-bottom: 1rem;
+                    border: 1px solid lightgray;
+                  }
+                  
+                  form input[type="checkbox"] {
+                    margin-right: 5px;
+                  }
+                  
+                  form button {
+                    width: 100%;
+                    padding: 10px;
+                    border-radius: 5px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 1rem;
+                  }
+                  
+                  form button:hover {
+                    background-color: #45a049;
+                  }
