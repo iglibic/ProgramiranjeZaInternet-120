@@ -1,0 +1,201 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+ol,
+li {
+	list-style-position: inside;
+}
+
+body {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	min-height: 100vh;
+}
+
+#page-header,
+#page-footer {
+	background-color: rgb(71, 71, 71);
+	padding: 1rem;
+	display: flex;
+	justify-content: center;
+}
+
+#page-header a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	margin-right: 1rem;
+}
+
+main {
+	margin: 1rem auto;
+	max-width: 600px;
+	min-height: 100vh;
+}
+
+h1 {
+	font-size: xx-large;
+	margin: 20px 0;
+	font-weight: bold;
+	color: rgb(71, 71, 71);
+	text-align: center;
+}
+
+h2 {
+	font-size: large;
+	margin: 10px 0;
+	font-weight: bold;
+	color: rgb(71, 71, 71);
+	text-align: center;
+}
+
+p {
+	text-align: center;
+}
+
+#anya {
+	max-width: 100%;
+	width: 100%;
+	border-radius: 5px;
+}
+
+#page-footer {
+	color: white;
+}
+
+label {
+	font-size: medium;
+	font-weight: bold;
+	color: rgb(71, 71, 71);
+}
+
+.task {
+	background-color: lightgray;
+	padding: 20px;
+	border-radius: 5px;
+	margin: 15px auto;
+}
+
+.sushi {
+	max-width: 100%;
+	width: 100px;
+	height: 70px;
+	padding: 10px;
+}
+
+.task .grid-container,
+.task .sushi-container {
+	height: 250px;
+	background-color: white;
+	margin-top: 10px;
+}

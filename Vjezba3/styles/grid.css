@@ -1,0 +1,10 @@
+.task .grid-container {
+	background-size: cover;
+}
+
+.sushi {
+	width: 100%;
+}
+
+#task-1 .sushi-cell {
+}
