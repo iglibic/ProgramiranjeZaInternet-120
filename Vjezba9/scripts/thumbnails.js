@@ -22,3 +22,38 @@
  * Underlining should also change accordingly.
  * If the currently active thumbnail image is the last (rightmost) one, on right arrow click the last one (leftmost) should become active.
  */
+
+const thumbnails = document.querySelectorAll(".thumbnail");
+const mainImage = document.querySelector("#main-picture-container img");
+const leftArrow = document.getElementById("left-arrow");
+const rightArrow = document.getElementById("right-arrow");
+
+function setActiveThumbnail(index) {
+	thumbnails.forEach((t) => t.classList.remove("selected"));
+	thumbnails[index].classList.add("selected");
+	mainImage.src = thumbnails[index].querySelector("img").src;
+}
+
+thumbnails.forEach((thumbnail, index) => {
+	thumbnail.addEventListener("click", () => {
+		setActiveThumbnail(index);
+	});
+});
+
+leftArrow.addEventListener("click", () => {
+	let activeIndex = [...thumbnails].findIndex((t) =>
+		t.classList.contains("selected")
+	);
+
+	activeIndex = activeIndex === 0 ? thumbnails.length - 1 : activeIndex - 1;
+	setActiveThumbnail(activeIndex);
+});
+
+rightArrow.addEventListener("click", () => {
+	let activeIndex = [...thumbnails].findIndex((t) =>
+		t.classList.contains("selected")
+	);
+
+	activeIndex = activeIndex === thumbnails.length - 1 ? 0 : activeIndex + 1;
+	setActiveThumbnail(activeIndex);
+});
