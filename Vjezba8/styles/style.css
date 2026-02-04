@@ -1,0 +1,76 @@
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header,
+footer {
+	display: flex;
+	align-items: center;
+	padding: 10px 20px;
+	color: white;
+	background-color: rgb(71, 71, 71);
+	max-width: 1300px;
+	margin: 0 auto;
+	justify-content: center;
+	color: white;
+	font-weight: bold;
+}
+
+h1 {
+	margin-bottom: 2rem;
+	text-align: center;
+}
+
+#intro {
+	text-align: center;
+	color: blue;
+}
+
+h1,
+h2 {
+	font-weight: bold;
+	color: #474747;
+}
+
+li {
+	margin: 20px auto;
+}
+
+main {
+	margin: 1rem auto;
+	max-width: 400px;
+	min-height: 85vh;
+}
+
+#todo-container {
+	margin: 0 auto;
+}
+
+.todo {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 5px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	margin: 1.5rem 0;
+	padding: 1rem;
+}
+
+.todo i {
+	color: red;
+	cursor: pointer;
+}
+
+#add-new-todo-button {
+	background-color: #474747;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+}
+
+#add-new-todo-button:hover {
+	color: #474747;
+	background-color: lightgray;
+}
