@@ -246,3 +246,10 @@ h2 {
 		height: 150px;
 	}
 }
+
+.hidden {
+	display: none;
+}
+.fa-heart {
+	color: red;
+}
