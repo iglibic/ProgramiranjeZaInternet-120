@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Exercise 6</title>
+		<link rel="stylesheet" href="styles/normalize.css" />
+		<link rel="stylesheet" href="styles/style.css" />
+	</head>
+	<body>
+		<header>Exercise 6</header>
+
+		<main>
+			<h1>Questions and answers</h1>
+
+			<h2 id="intro">
+				After answering these questions, solve the tasks in the <span class="code">script.js</span> file.
+			</h2>
+			<ol>
+				<li>
+					<p>What will be logged to console and why?</p>
+					<div class="code-block">
+						<p>const isModerator = true&#59;</p>
+						<p>const isContentCreator = false&#59;</p>
+						<p>const isAdmin = false&#59;</p>
+						<p>const isContentEditable = true&#59;</p>
+						<p class="mb-sm">const isSuspended = false&#59;</p>
+
+						<p>
+							const accessMessage = (isAdmin || isModerator || isContentCreator) && isContentEditable &&
+							!isSuspended
+						</p>
+						<p>? "User can edit content."</p>
+						<p class="mb-sm">:"User cannot edit content." &#59;</p>
+
+						<p>console.log(accessMessage)&#59;</p>
+					</div>
+					<p>Answer:</p>
+				</li>
+				<li>
+					<p>What will be logged to console and why?</p>
+					<div class="code-block">
+						<p>const isPrimeMember = true&#59;</p>
+						<p>const userLocation = "urban"&#59;</p>
+						<p class="mb-sm">const purchaseAmount = 60&#59;</p>
+						<p>const shippingMessage = (isPrimeMember && userLocation === "urban" && purchaseAmount >= 50)</p>
+						<p>? "Eligible for free shipping"</p>
+						<p class="mb-sm">: "Standard shipping applies" &#59;</p>
+
+						<p>console.log(shippingMessage)&#59;</p>
+					</div>
+					<p>Answer:</p>
+				</li>
+
+				<li>
+					<p>What will be logged to console and why?</p>
+					<div class="code-block">
+						<p>const vehicle = &#123;</p>
+						<p class="i-sm">owner: &#123;</p>
+						<p class="i-md">name: "John Doe",</p>
+						<p class="i-md">age: 30</p>
+						<p class="i-sm">&#125;,</p>
+						<p class="i-sm">status: &#123;</p>
+						<p class="i-md">isInsured: true,</p>
+						<p class="i-md">isRegistered: false</p>
+						<p class="i-sm">&#125;,</p>
+						<p class="mb-sm">&#125;&#59;</p>
+						<p>const canRegisterVehicle = vehicle.owner?.age >= 18</p>
+						<p class="i-md">&& vehicle.status?.isInsured</p>
+						<p class="i-md mb-sm">&& !vehicle.status?.isRegistered&#59;</p>
+
+						<p>
+							console.log(canRegisterVehicle ? "Vehicle can be registered" : "Vehicle cannot be
+							registered")&#59;
+						</p>
+					</div>
+					<p>Answer:</p>
+				</li>
+
+				<li>
+					<p>What will be logged to console and why?</p>
+					<div class="code-block">
+						<p>const salesData = &#123;</p>
+						<p class="i-sm">monthly: &#123;</p>
+						<p class="i-md">January: 150,</p>
+						<p class="i-md">February: 200</p>
+						<p class="i-sm">&#125;,</p>
+						<p class="mb-sm">&#125;&#59;</p>
+						<p>function calculateTotalOrders(salesData)&#123;</p>
+						<p class="i-md">
+							return (salesData.monthly?.January || 0) + (salesData.monthly?.February || 0 +
+							(salesData.monthly?.March || 0))&#59;
+						</p>
+						<p class="mb-sm">&#125;</p>
+
+						<p class="mb-sm">const result = calculateTotalOrders(salesData)</p>
+
+						<p>console.log(result)&#59;</p>
+					</div>
+					<p>Answer:</p>
+				</li>
+
+				<li>
+					<p>What will be logged to console and why?</p>
+					<div class="code-block">
+						<p class="mb-sm">
+							const getAuthorLastName = (book) => book.author?.name?.last || "Author last name unknown"&#59;
+						</p>
+
+						<p class="mb-sm">
+							const book = &#123; author: &#123; name: &#123; last: "Orwell" &#125; &#125; &#125;&#59;
+						</p>
+
+						<p>console.log(getAuthorLastName(book))&#59;</p>
+					</div>
+					<p>Answer:</p>
+				</li>
+
+				<li>
+					<p>What will be logged to console and why?</p>
+					<div class="code-block">
+						<p class="mb-sm">
+							const calculateAgeInYear = (user, year) => year - (user.birthInfo?.year || 0)&#59;
+						</p>
+
+						<p>const user = &#123;</p>
+						<p class="i-sm">name: "Jane Doe",</p>
+						<p class="i-sm">birthInfo: &#123;</p>
+						<p class="i-md">day: 3,</p>
+						<p class="i-md">month: "July",</p>
+						<p class="i-md">year: 1999,</p>
+						<p class="i-sm">&#125;</p>
+						<p class="mb-sm">&#125;</p>
+						<p>console.log(calculateAgeInYear(user, 2024))&#59;</p>
+					</div>
+					<p>Answer:</p>
+				</li>
+			</ol>
+		</main>
+
+		<footer>@FESB</footer>
+
+		<script src="script.js"></script>
+	</body>
+</html>
